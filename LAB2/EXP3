@@ -1,0 +1,72 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOhrBZlv3PT1d0qyBC7Au6a",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/LAB2/EXP3\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7bNRq5Gd5cfL",
+        "outputId": "f9c42f33-9f63-452a-9570-1d643710312b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Request Count\n",
+            "192.168.1.10 : 4\n",
+            "⚠ Possible DoS Attack from 192.168.1.10\n",
+            "192.168.1.20 : 2\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Sample log data\n",
+        "logs = [\n",
+        "    \"192.168.1.10\",\n",
+        "    \"192.168.1.10\",\n",
+        "    \"192.168.1.10\",\n",
+        "    \"192.168.1.10\",\n",
+        "    \"192.168.1.20\",\n",
+        "    \"192.168.1.20\"\n",
+        "]\n",
+        "count = {}\n",
+        "for ip in logs:\n",
+        "    count[ip] = count.get(ip, 0) + 1\n",
+        "print(\"Request Count\")\n",
+        "for ip in count:\n",
+        "    print(ip, \":\", count[ip])\n",
+        "    if count[ip] > 3:\n",
+        "        print(\"⚠ Possible DoS Attack from\", ip)"
+      ]
+    }
+  ]
+}
