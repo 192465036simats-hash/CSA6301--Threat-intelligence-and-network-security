@@ -1,0 +1,61 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNWoyhYFEuUncXdVnxYyXcC",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP11\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dI2eJxBH1pOY",
+        "outputId": "5e63a245-8ec0-4f3f-de38-90d680d7fab4"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Encrypted (what an eavesdropper sees): b'gAAAAABqXzEWJnomu4IQo3WJSq61UViVB_8GqfcJCosBYDuSNiX-Qhe2zddHoAFh2Sj3UEhZH0bi8hBk39zKKPwXOecJPlAhNIEClXqHoP03uhyO-P-ZxHY='\n",
+            "Decrypted (what the receiver reads): Transfer $500 to account 12345\n"
+          ]
+        }
+      ],
+      "source": [
+        "from cryptography.fernet import Fernet\n",
+        "key = Fernet.generate_key()\n",
+        "cipher = Fernet(key)\n",
+        "message = b\"Transfer $500 to account 12345\"\n",
+        "encrypted = cipher.encrypt(message)\n",
+        "print(\"Encrypted (what an eavesdropper sees):\", encrypted)\n",
+        "decrypted = cipher.decrypt(encrypted)\n",
+        "print(\"Decrypted (what the receiver reads):\", decrypted.decode())"
+      ]
+    }
+  ]
+}
