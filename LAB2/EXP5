@@ -1,0 +1,70 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMbcpVlPlqq9EpVMbGynpE0",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/LAB2/EXP5\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zMINfbih8Uz9",
+        "outputId": "3e3f8c19-f87b-4f6a-d6df-3adc7025ecbf"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Scanning 127.0.0.1\n",
+            "Port 21 is CLOSED\n",
+            "Port 22 is CLOSED\n",
+            "Port 23 is CLOSED\n",
+            "Port 80 is CLOSED\n",
+            "Port 443 is CLOSED\n"
+          ]
+        }
+      ],
+      "source": [
+        "import socket\n",
+        "host = \"127.0.0.1\"\n",
+        "ports = [21, 22, 23, 80, 443]\n",
+        "print(\"Scanning\", host)\n",
+        "for port in ports:\n",
+        "    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\n",
+        "    s.settimeout(1)\n",
+        "    result = s.connect_ex((host, port))\n",
+        "    if result == 0:\n",
+        "        print(\"Port\", port, \"is OPEN\")\n",
+        "    else:\n",
+        "        print(\"Port\", port, \"is CLOSED\")\n",
+        "    s.close()"
+      ]
+    }
+  ]
+}
