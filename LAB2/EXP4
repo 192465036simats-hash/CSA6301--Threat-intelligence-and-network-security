@@ -1,0 +1,71 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMb5RWWv0299h7+Id0EZND/",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/LAB2/EXP4\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "O21LoCNi7kw6",
+        "outputId": "8d1f19ec-792f-4908-cf85-c53f0f153c25"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting scapy\n",
+            "  Downloading scapy-2.7.0-py3-none-any.whl.metadata (5.8 kB)\n",
+            "Downloading scapy-2.7.0-py3-none-any.whl (2.6 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m2.6/2.6 MB\u001b[0m \u001b[31m24.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hInstalling collected packages: scapy\n",
+            "Successfully installed scapy-2.7.0\n",
+            "Capturing 5 packets...\n",
+            "Ether / IP / TCP 172.28.0.12:8080 > 172.28.0.1:48236 PA / Raw\n",
+            "Ether / IP / TCP 172.28.0.1:48236 > 172.28.0.12:8080 A\n",
+            "Ether / IP / TCP 172.28.0.12:8080 > 172.28.0.1:48236 PA / Raw\n",
+            "Ether / IP / TCP 172.28.0.1:48236 > 172.28.0.12:8080 A\n",
+            "Ether / IP / TCP 172.28.0.12:8080 > 172.28.0.1:48236 PA / Raw\n",
+            "Capture Completed\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install scapy\n",
+        "from scapy.all import sniff\n",
+        "def packet_info(packet):\n",
+        "    print(packet.summary())\n",
+        "print(\"Capturing 5 packets...\")\n",
+        "sniff(count=5, prn=packet_info)\n",
+        "print(\"Capture Completed\")"
+      ]
+    }
+  ]
+}
