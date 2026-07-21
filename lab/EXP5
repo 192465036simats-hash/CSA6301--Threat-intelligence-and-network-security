@@ -1,0 +1,62 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMk9avO8m6kK0C1omZe++u2",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP5\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XDFa6NXZx30p",
+        "outputId": "a48f6e08-2b4f-4a10-8fab-99ca92dd3b21"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "www.google.com                 -> 142.251.155.119\n",
+            "www.python.org                 -> 151.101.0.223\n",
+            "notarealdomain12345.com        -> Could not resolve (invalid/unreachable)\n"
+          ]
+        }
+      ],
+      "source": [
+        "import socket\n",
+        "domains = [\"www.google.com\", \"www.python.org\", \"notarealdomain12345.com\"]\n",
+        "for d in domains:\n",
+        "    try:\n",
+        "        ip = socket.gethostbyname(d)\n",
+        "        print(f\"{d:30s} -> {ip}\")\n",
+        "    except socket.gaierror:\n",
+        "        print(f\"{d:30s} -> Could not resolve (invalid/unreachable)\")"
+      ]
+    }
+  ]
+}
