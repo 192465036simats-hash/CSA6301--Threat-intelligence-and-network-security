@@ -1,0 +1,100 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOWxnID4yUxDhRI0TVPf4Qc",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP24\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6Z31tfhxej6b",
+        "outputId": "cd2c65ea-60c1-43dd-ef74-0ed41d86f2e7"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "All test cases passed.\n"
+          ]
+        }
+      ],
+      "source": [
+        "def rule_matches(packet, rule):\n",
+        "    def field_ok(value, rule_value):\n",
+        "        return rule_value == \"any\" or value == rule_value\n",
+        "\n",
+        "    return (\n",
+        "        field_ok(packet[\"src\"], rule[\"src\"])\n",
+        "        and field_ok(packet[\"dst\"], rule[\"dst\"])\n",
+        "        and field_ok(packet[\"port\"], rule[\"port\"])\n",
+        "        and field_ok(packet[\"proto\"], rule[\"proto\"])\n",
+        "    )\n",
+        "\n",
+        "def evaluate_packet(packet, rules):\n",
+        "    for rule in rules:\n",
+        "        if rule_matches(packet, rule):\n",
+        "            return rule[\"action\"]\n",
+        "    return \"deny\"\n",
+        "\n",
+        "misordered_rules = [\n",
+        "    {\"action\": \"allow\", \"src\": \"any\", \"dst\": \"any\", \"port\": \"any\", \"proto\": \"any\"},\n",
+        "    {\"action\": \"deny\", \"src\": \"10.0.0.5\", \"dst\": \"any\", \"port\": \"any\", \"proto\": \"any\"},\n",
+        "]\n",
+        "\n",
+        "packet = {\n",
+        "    \"src\": \"10.0.0.5\",\n",
+        "    \"dst\": \"8.8.8.8\",\n",
+        "    \"port\": 443,\n",
+        "    \"proto\": \"tcp\"\n",
+        "}\n",
+        "\n",
+        "assert evaluate_packet(packet, misordered_rules) == \"allow\"\n",
+        "\n",
+        "fixed_rules = [\n",
+        "    {\"action\": \"deny\", \"src\": \"10.0.0.5\", \"dst\": \"any\", \"port\": \"any\", \"proto\": \"any\"},\n",
+        "    {\"action\": \"allow\", \"src\": \"any\", \"dst\": \"any\", \"port\": \"any\", \"proto\": \"any\"},\n",
+        "]\n",
+        "\n",
+        "assert evaluate_packet(packet, fixed_rules) == \"deny\"\n",
+        "\n",
+        "other_packet = {\n",
+        "    \"src\": \"192.168.1.9\",\n",
+        "    \"dst\": \"1.1.1.1\",\n",
+        "    \"port\": 53,\n",
+        "    \"proto\": \"udp\"\n",
+        "}\n",
+        "\n",
+        "assert evaluate_packet(other_packet, []) == \"deny\"\n",
+        "\n",
+        "print(\"All test cases passed.\")"
+      ]
+    }
+  ]
+}
