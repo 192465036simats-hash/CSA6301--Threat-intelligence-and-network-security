@@ -1,0 +1,110 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM43XvXmf6ZXZIX2XZNoMqa",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP25\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "G6o8xMvDhMWw",
+        "outputId": "2a274329-9efb-4008-fee0-9951818c2942"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "All test cases passed.\n"
+          ]
+        }
+      ],
+      "source": [
+        "def handle_outbound_syn(packet, state_table, allow_rules):\n",
+        "    key = (packet[\"dst\"], packet[\"dport\"])\n",
+        "\n",
+        "    if key in allow_rules:\n",
+        "        state_table[(packet[\"src\"], packet[\"sport\"], packet[\"dst\"], packet[\"dport\"])] = \"ESTABLISHED\"\n",
+        "        return \"allow\"\n",
+        "\n",
+        "    return \"deny\"\n",
+        "\n",
+        "def handle_inbound_packet(packet, state_table):\n",
+        "    key = (packet[\"dst\"], packet[\"dport\"], packet[\"src\"], packet[\"sport\"])\n",
+        "\n",
+        "    if key in state_table:\n",
+        "        return \"allow\"\n",
+        "\n",
+        "    return \"deny\"\n",
+        "\n",
+        "state_table = {}\n",
+        "\n",
+        "allow_rules = {\n",
+        "    (\"93.184.216.34\", 443)\n",
+        "}\n",
+        "\n",
+        "outbound = {\n",
+        "    \"src\": \"10.0.0.20\",\n",
+        "    \"sport\": 51000,\n",
+        "    \"dst\": \"93.184.216.34\",\n",
+        "    \"dport\": 443\n",
+        "}\n",
+        "\n",
+        "assert handle_outbound_syn(outbound, state_table, allow_rules) == \"allow\"\n",
+        "\n",
+        "assert (\n",
+        "    outbound[\"src\"],\n",
+        "    outbound[\"sport\"],\n",
+        "    outbound[\"dst\"],\n",
+        "    outbound[\"dport\"]\n",
+        ") in state_table\n",
+        "\n",
+        "response = {\n",
+        "    \"src\": \"93.184.216.34\",\n",
+        "    \"sport\": 443,\n",
+        "    \"dst\": \"10.0.0.20\",\n",
+        "    \"dport\": 51000\n",
+        "}\n",
+        "\n",
+        "assert handle_inbound_packet(response, state_table) == \"allow\"\n",
+        "\n",
+        "unsolicited = {\n",
+        "    \"src\": \"203.0.113.9\",\n",
+        "    \"sport\": 4444,\n",
+        "    \"dst\": \"10.0.0.20\",\n",
+        "    \"dport\": 51000\n",
+        "}\n",
+        "\n",
+        "assert handle_inbound_packet(unsolicited, state_table) == \"deny\"\n",
+        "\n",
+        "print(\"All test cases passed.\")"
+      ]
+    }
+  ]
+}
