@@ -1,0 +1,118 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNjxvt+PMJPML9YfhZo5oX/",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP31\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "P8qDgUFWjLqL",
+        "outputId": "787a7bf3-d5c3-4910-d8a5-3402e24f1e30"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "All test cases passed.\n"
+          ]
+        }
+      ],
+      "source": [
+        "def zero_trust_authorize(request, resource_policy):\n",
+        "    reasons = []\n",
+        "\n",
+        "    allowed_users = resource_policy.get(request[\"resource\"], set())\n",
+        "\n",
+        "    if request[\"user\"] not in allowed_users:\n",
+        "        reasons.append(\"user not authorized for this resource\")\n",
+        "\n",
+        "    if not request[\"mfa_passed\"]:\n",
+        "        reasons.append(\"MFA not completed\")\n",
+        "\n",
+        "    if not request[\"device_posture\"][\"antivirus_enabled\"]:\n",
+        "        reasons.append(\"antivirus disabled\")\n",
+        "\n",
+        "    if not request[\"device_posture\"][\"os_patched\"]:\n",
+        "        reasons.append(\"OS not fully patched\")\n",
+        "\n",
+        "    return {\n",
+        "        \"granted\": len(reasons) == 0,\n",
+        "        \"reasons\": reasons\n",
+        "    }\n",
+        "\n",
+        "policy = {\n",
+        "    \"finance_db\": {\"csmith\", \"afinance\"}\n",
+        "}\n",
+        "\n",
+        "healthy_request = {\n",
+        "    \"user\": \"csmith\",\n",
+        "    \"mfa_passed\": True,\n",
+        "    \"device_posture\": {\n",
+        "        \"antivirus_enabled\": True,\n",
+        "        \"os_patched\": True\n",
+        "    },\n",
+        "    \"resource\": \"finance_db\"\n",
+        "}\n",
+        "\n",
+        "assert zero_trust_authorize(healthy_request, policy)[\"granted\"] is True\n",
+        "\n",
+        "unhealthy_request = {\n",
+        "    \"user\": \"csmith\",\n",
+        "    \"mfa_passed\": True,\n",
+        "    \"device_posture\": {\n",
+        "        \"antivirus_enabled\": False,\n",
+        "        \"os_patched\": True\n",
+        "    },\n",
+        "    \"resource\": \"finance_db\"\n",
+        "}\n",
+        "\n",
+        "result2 = zero_trust_authorize(unhealthy_request, policy)\n",
+        "\n",
+        "assert result2[\"granted\"] is False\n",
+        "assert \"antivirus disabled\" in result2[\"reasons\"]\n",
+        "\n",
+        "unauthorized_request = {\n",
+        "    \"user\": \"attacker99\",\n",
+        "    \"mfa_passed\": True,\n",
+        "    \"device_posture\": {\n",
+        "        \"antivirus_enabled\": True,\n",
+        "        \"os_patched\": True\n",
+        "    },\n",
+        "    \"resource\": \"finance_db\"\n",
+        "}\n",
+        "\n",
+        "assert zero_trust_authorize(unauthorized_request, policy)[\"granted\"] is False\n",
+        "\n",
+        "print(\"All test cases passed.\")"
+      ]
+    }
+  ]
+}
