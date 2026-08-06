@@ -1,0 +1,77 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPSPo/qO6IlU9oAEWeFvzFs",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP29\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ydhRnMZLirDL",
+        "outputId": "bfb58e34-356d-47cc-a3cd-5da687b2545d"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "All test cases passed.\n"
+          ]
+        }
+      ],
+      "source": [
+        "SEGMENTATION_POLICY = {\n",
+        "    (\"Guest\", \"Guest\"): True,\n",
+        "    (\"Guest\", \"Corporate\"): False,\n",
+        "    (\"Guest\", \"Medical\"): False,\n",
+        "    (\"Corporate\", \"Corporate\"): True,\n",
+        "    (\"Corporate\", \"Medical\"): False,\n",
+        "    (\"Admin\", \"Medical\"): True,\n",
+        "    (\"Admin\", \"Corporate\"): True,\n",
+        "    (\"Admin\", \"Admin\"): True,\n",
+        "}\n",
+        "\n",
+        "def can_communicate(src_segment, dst_segment, policy=SEGMENTATION_POLICY):\n",
+        "    return policy.get((src_segment, dst_segment), False)\n",
+        "\n",
+        "assert can_communicate(\"Guest\", \"Medical\") is False\n",
+        "assert can_communicate(\"Guest\", \"Corporate\") is False\n",
+        "\n",
+        "assert can_communicate(\"Admin\", \"Medical\") is True\n",
+        "assert can_communicate(\"Admin\", \"Corporate\") is True\n",
+        "\n",
+        "assert can_communicate(\"Corporate\", \"Corporate\") is True\n",
+        "\n",
+        "assert can_communicate(\"IoT\", \"Corporate\") is False\n",
+        "\n",
+        "print(\"All test cases passed.\")"
+      ]
+    }
+  ]
+}
