@@ -1,0 +1,72 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO23dRreolS4n/XFb5JFuFo",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP36\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "h6OEvbKwE3yo",
+        "outputId": "18e5933c-236a-4318-8ab5-48b54aaa113b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'is_valid': True, 'reason': 'Chain of custody intact', 'break_index': None}\n"
+          ]
+        }
+      ],
+      "source": [
+        "def validate_custody_chain(records):\n",
+        "    if not records:\n",
+        "        return {\"is_valid\": False, \"reason\": \"No records provided\", \"break_index\": None}\n",
+        "    original_hash = records[0][\"hash\"]\n",
+        "    last_timestamp = records[0][\"timestamp\"]\n",
+        "    for i, record in enumerate(records):\n",
+        "        if record[\"hash\"] != original_hash:\n",
+        "            return {\"is_valid\": False, \"reason\": \"Hash mismatch - evidence integrity broken\", \"break_index\": i}\n",
+        "        if i > 0 and record[\"timestamp\"] < last_timestamp:\n",
+        "            return {\"is_valid\": False, \"reason\": \"Timestamp out of order - custody sequence broken\", \"break_index\": i}\n",
+        "        last_timestamp = record[\"timestamp\"]\n",
+        "    return {\"is_valid\": True, \"reason\": \"Chain of custody intact\", \"break_index\": None}\n",
+        "\n",
+        "good_chain = [\n",
+        "    {\"handler\": \"Officer A\", \"hash\": \"9f8e...ab12\", \"timestamp\": 100},\n",
+        "    {\"handler\": \"Lab Tech B\", \"hash\": \"9f8e...ab12\", \"timestamp\": 150},\n",
+        "    {\"handler\": \"Analyst C\", \"hash\": \"9f8e...ab12\", \"timestamp\": 220}\n",
+        "]\n",
+        "\n",
+        "print(validate_custody_chain(good_chain))"
+      ]
+    }
+  ]
+}
