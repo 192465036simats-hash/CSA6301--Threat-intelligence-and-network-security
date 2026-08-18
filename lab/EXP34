@@ -1,0 +1,70 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM9WPnxLO96mYdI3+5lzSAn",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP34\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9_bkZXMuEgeB",
+        "outputId": "220885f3-2cbe-4fbc-a4b1-746b1392b330"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Isolate Host from Network\n"
+          ]
+        }
+      ],
+      "source": [
+        "def recommend_containment(incident_description, rules):\n",
+        "    text = incident_description.lower()\n",
+        "    for strategy, keywords in rules:\n",
+        "        for kw in keywords:\n",
+        "            if kw in text:\n",
+        "                return strategy\n",
+        "    return \"Escalate to Senior Analyst for Manual Review\"\n",
+        "\n",
+        "CONTAINMENT_RULES = [\n",
+        "    (\"Isolate Host from Network\", [\"ransomware encrypting files\", \"worm actively spreading\", \"active malware execution detected\"]),\n",
+        "    (\"Block Malicious IP/Domain at Firewall\", [\"command-and-control communication observed\", \"large outbound data transfer to external server\", \"beaconing to a known malicious domain\"]),\n",
+        "    (\"Disable Compromised User Account\", [\"compromised credentials used to log in\", \"account takeover suspected\", \"unauthorized login from a foreign country\"]),\n",
+        "    (\"Segment Network / Restrict VLAN Access\", [\"lateral movement between internal hosts\", \"internal network scanning detected\"]),\n",
+        "    (\"Revoke Access Tokens / API Keys\", [\"leaked api key found in a public repository\", \"exposed access token discovered\"])\n",
+        "]\n",
+        "\n",
+        "d1 = \"Ransomware encrypting files was found on three workstations.\"\n",
+        "print(recommend_containment(d1, CONTAINMENT_RULES))"
+      ]
+    }
+  ]
+}
