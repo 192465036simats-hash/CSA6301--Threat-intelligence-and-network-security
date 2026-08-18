@@ -1,0 +1,68 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOfZYAGu3hTx6SytMa6olB2",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP41\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XevJDW4zG5a-",
+        "outputId": "d9a05e50-66ff-4bbf-e252-220126b1b67e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "P1 - Critical\n"
+          ]
+        }
+      ],
+      "source": [
+        "def triage_alert(alert_description, rules):\n",
+        "    text = alert_description.lower()\n",
+        "    for priority, keywords in rules:\n",
+        "        for kw in keywords:\n",
+        "            if kw in text:\n",
+        "                return priority\n",
+        "    return \"P4 - Low\"\n",
+        "\n",
+        "SOC_TRIAGE_RULES = [\n",
+        "    (\"P1 - Critical\", [\"ransomware detonation confirmed\", \"domain admin account compromised\", \"active data exfiltration in progress\"]),\n",
+        "    (\"P2 - High\", [\"malware detected on endpoint\", \"multiple failed administrator logins\", \"command-and-control beacon detected\"]),\n",
+        "    (\"P3 - Medium\", [\"acceptable use policy violation\", \"login from an unusual location\", \"port scan detected against a server\"])\n",
+        "]\n",
+        "\n",
+        "d1 = \"SIEM confirms active data exfiltration in progress from the finance share.\"\n",
+        "print(triage_alert(d1, SOC_TRIAGE_RULES))"
+      ]
+    }
+  ]
+}
