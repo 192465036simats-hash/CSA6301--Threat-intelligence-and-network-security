@@ -1,0 +1,73 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP5FwOngDRM56HOZFSA9VTI",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP37\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "qzxuAP2vFdEk",
+        "outputId": "e0665273-9da6-4536-8c71-45268fd7bae5"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[]\n"
+          ]
+        }
+      ],
+      "source": [
+        "def check_policy_compliance(policy_text, required_elements):\n",
+        "    text = policy_text.lower()\n",
+        "    return [element for element, keyword in required_elements if keyword not in text]\n",
+        "\n",
+        "REQUIRED_POLICY_ELEMENTS = [\n",
+        "    (\"Scope\", \"scope\"),\n",
+        "    (\"Roles and Responsibilities\", \"responsibilities\"),\n",
+        "    (\"Enforcement/Consequences\", \"enforcement\"),\n",
+        "    (\"Review Cycle\", \"review\"),\n",
+        "    (\"Approval Authority\", \"approved by\")\n",
+        "]\n",
+        "\n",
+        "policy = \"\"\"\n",
+        "Scope: This policy applies to all employees and contractors.\n",
+        "Roles and Responsibilities: The IT department is responsible for enforcement.\n",
+        "Enforcement: Violations may result in disciplinary action.\n",
+        "This policy will undergo an annual review.\n",
+        "Approved by the Chief Information Security Officer.\n",
+        "\"\"\"\n",
+        "\n",
+        "print(check_policy_compliance(policy, REQUIRED_POLICY_ELEMENTS))"
+      ]
+    }
+  ]
+}
