@@ -1,0 +1,71 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOmYdTATyWKT5S2cXxCqCNq",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP33\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1IiyzRYbD4a3",
+        "outputId": "a6bc7bb5-e218-4ae2-8bb6-7eaa3857cbc2"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Preparation\n"
+          ]
+        }
+      ],
+      "source": [
+        "def classify_ir_phase(description, rules):\n",
+        "    text = description.lower()\n",
+        "    for phase, keywords in rules:\n",
+        "        for kw in keywords:\n",
+        "            if kw in text:\n",
+        "                return phase\n",
+        "    return \"Unclassified\"\n",
+        "\n",
+        "IR_PHASE_RULES = [\n",
+        "    (\"Preparation\", [\"tabletop exercise\", \"incident response playbook\", \"conduct staff training\", \"runbook\"]),\n",
+        "    (\"Identification\", [\"alert was triggered\", \"suspicious activity was detected\", \"anomaly detected by the ids\", \"reported the issue to the helpdesk\"]),\n",
+        "    (\"Containment\", [\"isolate the affected host\", \"disconnect the machine from the network\", \"block the ip at the firewall\", \"disable the compromised account\"]),\n",
+        "    (\"Eradication\", [\"remove the malware from the system\", \"patch the vulnerable software\", \"delete the malicious scheduled task\", \"rebuild the infected server\"]),\n",
+        "    (\"Recovery\", [\"restore the system from a clean backup\", \"bring the server back into production\", \"monitor the system for signs of reinfection\"]),\n",
+        "    (\"Lessons Learned\", [\"post-incident review meeting\", \"perform a root cause analysis session\", \"update the playbook based on the incident\"])\n",
+        "]\n",
+        "\n",
+        "d1 = \"The team ran a tabletop exercise to test the incident response playbook.\"\n",
+        "print(classify_ir_phase(d1, IR_PHASE_RULES))"
+      ]
+    }
+  ]
+}
