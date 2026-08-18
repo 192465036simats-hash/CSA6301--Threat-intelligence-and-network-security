@@ -1,0 +1,67 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOExVAD9m1velNrSGz2PM1I",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/lab/EXP38\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MjOX-XteF0Mo",
+        "outputId": "624945b8-6b44-4000-9fbc-2b885f56a4d5"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'score': 16, 'level': 'High'}\n"
+          ]
+        }
+      ],
+      "source": [
+        "def calculate_risk(likelihood, impact):\n",
+        "    if not (1 <= likelihood <= 5) or not (1 <= impact <= 5):\n",
+        "        raise ValueError(\"Likelihood and impact must each be between 1 and 5.\")\n",
+        "    score = likelihood * impact\n",
+        "    if score <= 5:\n",
+        "        level = \"Low\"\n",
+        "    elif score <= 12:\n",
+        "        level = \"Medium\"\n",
+        "    elif score <= 19:\n",
+        "        level = \"High\"\n",
+        "    else:\n",
+        "        level = \"Critical\"\n",
+        "    return {\"score\": score, \"level\": level}\n",
+        "\n",
+        "print(calculate_risk(4, 4))"
+      ]
+    }
+  ]
+}
