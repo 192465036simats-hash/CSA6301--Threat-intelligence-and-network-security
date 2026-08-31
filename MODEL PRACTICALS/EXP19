@@ -1,0 +1,68 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMNkRDqdIrlm0FwQI+SfwoU",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP19\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Y2A1T3lr2C9M",
+        "outputId": "ea5df309-1cb3-42e7-964f-00a59647c844"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter username: admin\n",
+            "Count = 2\n"
+          ]
+        }
+      ],
+      "source": [
+        "events = [\n",
+        "    {\"user\":\"admin\"},\n",
+        "    {\"user\":\"guest\"},\n",
+        "    {\"user\":\"admin\"}\n",
+        "]\n",
+        "\n",
+        "search_user = input(\"Enter username: \")\n",
+        "\n",
+        "count = 0\n",
+        "\n",
+        "for e in events:\n",
+        "    if e[\"user\"] == search_user:\n",
+        "        count += 1\n",
+        "\n",
+        "print(\"Count =\", count)"
+      ]
+    }
+  ]
+}
