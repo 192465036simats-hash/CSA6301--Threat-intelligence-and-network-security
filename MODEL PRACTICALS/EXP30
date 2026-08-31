@@ -1,0 +1,62 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN7xdYLM4ZDYyjn8g6Vilyh",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP30\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OobNAbaH8DlU",
+        "outputId": "b736756f-ab9f-42dc-f02a-a0b23f90c9b6"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Brute Force Attack Detected\n"
+          ]
+        }
+      ],
+      "source": [
+        "firewall_log = \"Failed Login\"\n",
+        "windows_log = \"Account Lockout\"\n",
+        "vpn_log = \"Multiple VPN Attempts\"\n",
+        "\n",
+        "if (\"Failed\" in firewall_log and\n",
+        "    \"Lockout\" in windows_log and\n",
+        "    \"Multiple\" in vpn_log):\n",
+        "    print(\"Brute Force Attack Detected\")\n",
+        "else:\n",
+        "    print(\"No Threat Detected\")"
+      ]
+    }
+  ]
+}
