@@ -1,0 +1,57 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNnp9g3xU+7YrmW9OP7ZWSZ",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP22\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "35xOri7H4gvY",
+        "outputId": "698173f5-f6e9-4357-e5ac-7d766eeca339"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Brute Force Attack Detected\n"
+          ]
+        }
+      ],
+      "source": [
+        "logs = [\"FAIL\", \"FAIL\", \"FAIL\", \"SUCCESS\"]\n",
+        "\n",
+        "for i in range(len(logs)-3):\n",
+        "    if logs[i:i+3] == [\"FAIL\", \"FAIL\", \"FAIL\"] and logs[i+3] == \"SUCCESS\":\n",
+        "        print(\"Brute Force Attack Detected\")"
+      ]
+    }
+  ]
+}
