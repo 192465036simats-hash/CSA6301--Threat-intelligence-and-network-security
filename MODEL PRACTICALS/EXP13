@@ -1,0 +1,64 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN5yPCKlIwFsqUCqLgtb6aW",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP13\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "A11He86VzUBC",
+        "outputId": "a4145938-baec-490a-8bd3-ad24a95fa079"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Has context? (yes/no): YES\n",
+            "Has confidence assessment? (yes/no): ES\n",
+            "Is actionable? (yes/no): YES\n",
+            "Raw Data\n"
+          ]
+        }
+      ],
+      "source": [
+        "context = input(\"Has context? (yes/no): \")\n",
+        "confidence = input(\"Has confidence assessment? (yes/no): \")\n",
+        "actionable = input(\"Is actionable? (yes/no): \")\n",
+        "\n",
+        "if context==\"yes\" and confidence==\"yes\" and actionable==\"yes\":\n",
+        "    print(\"Genuine Threat Intelligence\")\n",
+        "else:\n",
+        "    print(\"Raw Data\")\n",
+        ""
+      ]
+    }
+  ]
+}
