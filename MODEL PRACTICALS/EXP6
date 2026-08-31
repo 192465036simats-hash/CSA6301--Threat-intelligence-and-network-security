@@ -1,0 +1,61 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOaa4Saq69ZsXZ/lvPoGeBE",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP6\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "U7wl1afBv3l8",
+        "outputId": "bee1dbbb-fdc0-41eb-a4fa-7d388c2a6715"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter URL: http://verify-account-login.com\n",
+            "Suspicious URL\n"
+          ]
+        }
+      ],
+      "source": [
+        "url = input(\"Enter URL: \")\n",
+        "\n",
+        "if \"login\" in url or \"verify\" in url:\n",
+        "    print(\"Suspicious URL\")\n",
+        "elif url.count(\".\") > 3:\n",
+        "    print(\"Excessive Subdomains\")\n",
+        "else:\n",
+        "    print(\"URL appears normal\")"
+      ]
+    }
+  ]
+}
