@@ -1,0 +1,63 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPUzjTE1AmfSIxFy7qeXvmJ",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP27\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DhpLLwC-6PaU",
+        "outputId": "cff9bd3e-14d0-4e5a-d0bd-dedeb372df5b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter protocol: tcp\n",
+            "Enter port: 80\n",
+            "Enter content: attack detected\n",
+            "No Alert\n"
+          ]
+        }
+      ],
+      "source": [
+        "protocol = input(\"Enter protocol: \")\n",
+        "port = int(input(\"Enter port: \"))\n",
+        "content = input(\"Enter content: \")\n",
+        "\n",
+        "if protocol == \"TCP\" and port == 80 and \"attack\" in content.lower():\n",
+        "    print(\"IDS Alert\")\n",
+        "else:\n",
+        "    print(\"No Alert\")"
+      ]
+    }
+  ]
+}
