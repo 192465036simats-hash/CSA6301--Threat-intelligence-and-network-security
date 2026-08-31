@@ -1,0 +1,71 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM0+e/1Ggl4A7vbg7nRoK15",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP26\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3RlD1UfO6NFl",
+        "outputId": "e4717fad-ab81-4f8b-a0c3-b9e3dbc042dd"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter file content: CreateRemoteThread\n",
+            "SHA256: 337e9b0f043f6058a94ec8409111e3bc8b56e05b4d70caffd4cdb5096c3b086e\n",
+            "Suspicious API Found\n",
+            "Enter behavior log: registry modifies\n",
+            "Suspicious Dynamic Behavior\n"
+          ]
+        }
+      ],
+      "source": [
+        "import hashlib\n",
+        "\n",
+        "sample = input(\"Enter file content: \")\n",
+        "\n",
+        "hash_value = hashlib.sha256(sample.encode()).hexdigest()\n",
+        "\n",
+        "print(\"SHA256:\", hash_value)\n",
+        "\n",
+        "if \"CreateRemoteThread\" in sample:\n",
+        "    print(\"Suspicious API Found\")\n",
+        "\n",
+        "behavior = input(\"Enter behavior log: \")\n",
+        "\n",
+        "if \"registry\" in behavior.lower():\n",
+        "    print(\"Suspicious Dynamic Behavior\")"
+      ]
+    }
+  ]
+}
