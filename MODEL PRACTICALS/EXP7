@@ -1,0 +1,77 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOrSjNMgFCstab57ZuUAmPj",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP7\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pYfZNCGfwboa",
+        "outputId": "bb8346d8-5ba6-403d-b999-d82ee1249533"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Structured Events:\n",
+            "[{'level': 'INFO', 'message': 'Login'}, {'level': 'ERROR', 'message': 'Database'}, {'level': 'INFO', 'message': 'Login'}]\n",
+            "Aggregation:\n",
+            "{'INFO': 2, 'ERROR': 1}\n"
+          ]
+        }
+      ],
+      "source": [
+        "logs = [\n",
+        "    \"INFO Login\",\n",
+        "    \"ERROR Database\",\n",
+        "    \"INFO Login\"\n",
+        "]\n",
+        "\n",
+        "events = []\n",
+        "\n",
+        "for log in logs:\n",
+        "    level, message = log.split()\n",
+        "    events.append({\"level\": level, \"message\": message})\n",
+        "\n",
+        "print(\"Structured Events:\")\n",
+        "print(events)\n",
+        "\n",
+        "count = {}\n",
+        "\n",
+        "for e in events:\n",
+        "    count[e[\"level\"]] = count.get(e[\"level\"], 0) + 1\n",
+        "\n",
+        "print(\"Aggregation:\")\n",
+        "print(count)"
+      ]
+    }
+  ]
+}
