@@ -1,0 +1,68 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNHF9Xi7DO6zQ4lvI6PtMJO",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP25\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ecSGV4yb5sYg",
+        "outputId": "ce7d9055-caf4-42bd-a8bd-837b6dd57d36"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Chain of Custody Valid\n"
+          ]
+        }
+      ],
+      "source": [
+        "records = [\n",
+        "    (\"2026-01-01\", \"ABC123\"),\n",
+        "    (\"2026-01-02\", \"ABC123\"),\n",
+        "    (\"2026-01-03\", \"ABC123\")\n",
+        "]\n",
+        "\n",
+        "valid = True\n",
+        "\n",
+        "for i in range(1, len(records)):\n",
+        "    if records[i][1] != records[i-1][1]:\n",
+        "        valid = False\n",
+        "\n",
+        "if valid:\n",
+        "    print(\"Chain of Custody Valid\")\n",
+        "else:\n",
+        "    print(\"Chain Broken\")"
+      ]
+    }
+  ]
+}
