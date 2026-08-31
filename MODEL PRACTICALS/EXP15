@@ -1,0 +1,65 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOeYfNlngiCGk/BlrTF6A1Q",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP15\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "nRUL4qq9z8Rd",
+        "outputId": "1a1aa81f-c932-4deb-8c04-e54a85cccefe"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter incident description: Malicious email tricked employee\n",
+            "Root Cause: Phishing\n"
+          ]
+        }
+      ],
+      "source": [
+        "case = input(\"Enter incident description: \").lower()\n",
+        "\n",
+        "if \"email\" in case:\n",
+        "    print(\"Root Cause: Phishing\")\n",
+        "elif \"patch\" in case:\n",
+        "    print(\"Root Cause: Unpatched Vulnerability\")\n",
+        "elif \"config\" in case:\n",
+        "    print(\"Root Cause: Misconfiguration\")\n",
+        "elif \"employee\" in case:\n",
+        "    print(\"Root Cause: Insider Threat\")\n",
+        "else:\n",
+        "    print(\"Root Cause: Supply-Chain Compromise\")"
+      ]
+    }
+  ]
+}
