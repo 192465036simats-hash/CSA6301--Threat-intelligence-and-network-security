@@ -1,0 +1,63 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPtfXPksLpP/UfqgRBSMzYO",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP29\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "84x5jc0D7Rou",
+        "outputId": "a6348563-e196-4df6-90f9-17d1dbb03429"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter incident type: ransomware attack\n",
+            "Disconnect affected systems\n"
+          ]
+        }
+      ],
+      "source": [
+        "incident = input(\"Enter incident type: \").lower()\n",
+        "\n",
+        "if \"ransomware\" in incident:\n",
+        "    print(\"Disconnect affected systems\")\n",
+        "elif \"phishing\" in incident:\n",
+        "    print(\"Block malicious email and reset passwords\")\n",
+        "elif \"malware\" in incident:\n",
+        "    print(\"Isolate infected host\")\n",
+        "else:\n",
+        "    print(\"Perform investigation\")"
+      ]
+    }
+  ]
+}
