@@ -1,0 +1,70 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOSPNHSZzc3k2Bqjt+yA4Lr",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP4\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ujv8NEDQvLSV",
+        "outputId": "93a434de-21d2-416b-859c-5d6e55e45540"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter Message: HELLO\n",
+            "Encrypted: M@IIJ\n",
+            "Decrypted: HELLO\n"
+          ]
+        }
+      ],
+      "source": [
+        "message = input(\"Enter Message: \")\n",
+        "key = 5\n",
+        "\n",
+        "encrypted = \"\"\n",
+        "\n",
+        "for ch in message:\n",
+        "    encrypted += chr(ord(ch) ^ key)\n",
+        "\n",
+        "print(\"Encrypted:\", encrypted)\n",
+        "\n",
+        "decrypted = \"\"\n",
+        "\n",
+        "for ch in encrypted:\n",
+        "    decrypted += chr(ord(ch) ^ key)\n",
+        "\n",
+        "print(\"Decrypted:\", decrypted)"
+      ]
+    }
+  ]
+}
