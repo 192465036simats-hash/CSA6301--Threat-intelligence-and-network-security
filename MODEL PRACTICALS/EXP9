@@ -1,0 +1,63 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP6t5y/uj4Rnz51sCvRY5oX",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP9\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bV7SucW4xUyn",
+        "outputId": "681505fb-7ec2-4c8e-db84-f80dea55bfc2"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter activity: collect threat data from sources\n",
+            "Collection\n"
+          ]
+        }
+      ],
+      "source": [
+        "activity = input(\"Enter activity: \").lower()\n",
+        "\n",
+        "if \"collect\" in activity:\n",
+        "    print(\"Collection\")\n",
+        "elif \"analyze\" in activity:\n",
+        "    print(\"Analysis\")\n",
+        "elif \"share\" in activity:\n",
+        "    print(\"Dissemination\")\n",
+        "else:\n",
+        "    print(\"Processing\")"
+      ]
+    }
+  ]
+}
