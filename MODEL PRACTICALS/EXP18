@@ -1,0 +1,70 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMdssfl+M3eRG1kfpZ2mQCM",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP18\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Xk7qeMh62A1v",
+        "outputId": "f2abe6d5-35bf-4f30-cb87-6d477f3c96a7"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter file content: HELLO\n",
+            "Hash: eb61eead90e3b899c6bcbe27ac581660\n",
+            "File Safe\n"
+          ]
+        }
+      ],
+      "source": [
+        "import hashlib\n",
+        "\n",
+        "known_hashes = [\n",
+        "    \"5d41402abc4b2a76b9719d911017c592\"\n",
+        "]\n",
+        "\n",
+        "text = input(\"Enter file content: \")\n",
+        "\n",
+        "file_hash = hashlib.md5(text.encode()).hexdigest()\n",
+        "\n",
+        "print(\"Hash:\", file_hash)\n",
+        "\n",
+        "if file_hash in known_hashes:\n",
+        "    print(\"Malware Detected\")\n",
+        "else:\n",
+        "    print(\"File Safe\")"
+      ]
+    }
+  ]
+}
