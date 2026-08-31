@@ -1,0 +1,63 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPhIAgjVcOve9VlNW2dCUdO",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP17\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "control = input(\"Enter security control: \").lower()\n",
+        "\n",
+        "if \"access\" in control:\n",
+        "    print(\"Access Control\")\n",
+        "elif \"backup\" in control:\n",
+        "    print(\"Operations Security\")\n",
+        "elif \"encryption\" in control:\n",
+        "    print(\"Cryptography\")\n",
+        "else:\n",
+        "    print(\"General Security Domain\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bTmHKbgh0zpz",
+        "outputId": "1b460c52-f895-41e1-e803-273cee0b372a"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter security control: User access review\n",
+            "Access Control\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
