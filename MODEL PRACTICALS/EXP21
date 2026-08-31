@@ -1,0 +1,61 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNaKPfZs1O6Zd5LZurbvemZ",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP21\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PfEM5OhX3j-l",
+        "outputId": "a1a629fa-aeb3-4767-9eff-01587d0d36f6"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter post-incident report: Patch management and employee awareness training improved.\n",
+            "patch - Mentioned\n",
+            "awareness - Mentioned\n"
+          ]
+        }
+      ],
+      "source": [
+        "report = input(\"Enter post-incident report: \").lower()\n",
+        "\n",
+        "areas = [\"patch\", \"awareness\", \"monitoring\", \"backup\", \"access\"]\n",
+        "\n",
+        "for area in areas:\n",
+        "    if area in report:\n",
+        "        print(area, \"- Mentioned\")"
+      ]
+    }
+  ]
+}
