@@ -1,0 +1,63 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOkMhQxr1UfVKxBVgFlcqXn",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP12\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IIO9Fwhry0ZF",
+        "outputId": "8d79dcc9-d3ee-4d3c-952c-fdf82b73dddd"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter alert description: Ransomware detected on server\n",
+            "Priority: P1\n"
+          ]
+        }
+      ],
+      "source": [
+        "alert = input(\"Enter alert description: \").lower()\n",
+        "\n",
+        "if \"ransomware\" in alert or \"data breach\" in alert:\n",
+        "    print(\"Priority: P1\")\n",
+        "elif \"malware\" in alert:\n",
+        "    print(\"Priority: P2\")\n",
+        "elif \"suspicious login\" in alert:\n",
+        "    print(\"Priority: P3\")\n",
+        "else:\n",
+        "    print(\"Priority: P4\")"
+      ]
+    }
+  ]
+}
