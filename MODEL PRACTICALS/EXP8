@@ -1,0 +1,61 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOehuECsSXiBVwE+V2Uybvu",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP8\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "hc-pNArNxVxG",
+        "outputId": "824e8565-8399-4896-a0e0-7509ad9cce1d"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter source segment: Guest Database\n",
+            "Enter destination segment: Database\n",
+            "Access Allowed\n"
+          ]
+        }
+      ],
+      "source": [
+        "source = input(\"Enter source segment: \")\n",
+        "destination = input(\"Enter destination segment: \")\n",
+        "\n",
+        "if source == \"Guest\" and destination == \"Database\":\n",
+        "    print(\"Access Blocked\")\n",
+        "else:\n",
+        "    print(\"Access Allowed\")"
+      ]
+    }
+  ]
+}
