@@ -1,0 +1,72 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO1QcTzJLrg+TizPNKl2j+P",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP3\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FpKq-84ifEKC",
+        "outputId": "681e4a56-6317-4204-b0c2-99a3dc691f98"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter policy text: This security policy defines the scope of the organization. Roles and responsibilities are assigned. Policy enforcement is mandatory. The policy will undergo annual review and approval by management.\n",
+            "scope - Present\n",
+            "roles - Present\n",
+            "enforcement - Present\n",
+            "review - Present\n",
+            "approval - Present\n"
+          ]
+        }
+      ],
+      "source": [
+        "policy = input(\"Enter policy text: \").lower()\n",
+        "\n",
+        "required = [\n",
+        "    \"scope\",\n",
+        "    \"roles\",\n",
+        "    \"enforcement\",\n",
+        "    \"review\",\n",
+        "    \"approval\"\n",
+        "]\n",
+        "\n",
+        "for item in required:\n",
+        "    if item in policy:\n",
+        "        print(item, \"- Present\")\n",
+        "    else:\n",
+        "        print(item, \"- Missing\")"
+      ]
+    }
+  ]
+}
