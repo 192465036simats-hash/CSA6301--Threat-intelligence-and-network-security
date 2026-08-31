@@ -1,0 +1,65 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNBCSyAwSudzvRr0huH071S",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP23\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5JwGwIFY4iNl",
+        "outputId": "ddfc9144-790a-4196-e4a4-482806f6de40"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter source IP: 10.0.0.5\n",
+            "Enter traffic content: malware detected\n",
+            "Blocked by IPS\n"
+          ]
+        }
+      ],
+      "source": [
+        "trusted = [\"192.168.1.10\"]\n",
+        "\n",
+        "ip = input(\"Enter source IP: \")\n",
+        "traffic = input(\"Enter traffic content: \")\n",
+        "\n",
+        "if ip in trusted:\n",
+        "    print(\"Allowed (Whitelisted)\")\n",
+        "elif \"malware\" in traffic.lower():\n",
+        "    print(\"Blocked by IPS\")\n",
+        "else:\n",
+        "    print(\"Allowed\")"
+      ]
+    }
+  ]
+}
