@@ -1,0 +1,67 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMqf+IosCYGaRvfGTRJTggl",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP39\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ghvvxTIv6EZq",
+        "outputId": "6e1cba1a-619f-4afe-b1bf-54d1d8ca96c8"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter log entry: Connection from 192.168.1.5 detected\n",
+            "ALERT: IOC Match Found\n"
+          ]
+        }
+      ],
+      "source": [
+        "ioc_feed = [\"192.168.1.5\", \"malicious.com\"]\n",
+        "\n",
+        "log = input(\"Enter log entry: \")\n",
+        "\n",
+        "found = False\n",
+        "\n",
+        "for ioc in ioc_feed:\n",
+        "    if ioc in log:\n",
+        "        found = True\n",
+        "\n",
+        "if found:\n",
+        "    print(\"ALERT: IOC Match Found\")\n",
+        "else:\n",
+        "    print(\"No Match\")"
+      ]
+    }
+  ]
+}
