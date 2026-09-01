@@ -1,0 +1,70 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMs9udXep7OGtaX7pzctN0g",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP14\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XrDTYl_Kz7fQ",
+        "outputId": "b2ad1362-eea3-4e88-b156-319466894bd0"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collected: {'source': 'Firewall', 'ip': '10.0.0.5'}\n",
+            "Collected: {'source': 'Windows', 'ip': '10.0.0.5'}\n",
+            "ALERT: Correlated Event From 10.0.0.5\n"
+          ]
+        }
+      ],
+      "source": [
+        "events = [\n",
+        "    {\"source\":\"Firewall\",\"ip\":\"10.0.0.5\"},\n",
+        "    {\"source\":\"Windows\",\"ip\":\"10.0.0.5\"}\n",
+        "]\n",
+        "\n",
+        "for e in events:\n",
+        "    print(\"Collected:\", e)\n",
+        "\n",
+        "ips = {}\n",
+        "\n",
+        "for e in events:\n",
+        "    ips[e[\"ip\"]] = ips.get(e[\"ip\"],0)+1\n",
+        "\n",
+        "for ip,count in ips.items():\n",
+        "    if count > 1:\n",
+        "        print(\"ALERT: Correlated Event From\", ip)"
+      ]
+    }
+  ]
+}
