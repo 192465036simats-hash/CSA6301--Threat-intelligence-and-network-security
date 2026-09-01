@@ -1,0 +1,59 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPD5GULGZVi7zRoiIDrZEjb",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP35\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "F3ahdz5i42-f",
+        "outputId": "f5b4122d-c01a-4817-e4ee-43f2a41009af"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Excess Privileges Found\n"
+          ]
+        }
+      ],
+      "source": [
+        "required = {\"Employee\": [\"Read\"]}\n",
+        "user_permissions = [\"Read\", \"Write\"]\n",
+        "\n",
+        "if set(user_permissions) > set(required[\"Employee\"]):\n",
+        "    print(\"Excess Privileges Found\")\n",
+        "else:\n",
+        "    print(\"Permissions Correct\")"
+      ]
+    }
+  ]
+}
