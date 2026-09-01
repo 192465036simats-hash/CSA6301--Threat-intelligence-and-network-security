@@ -1,0 +1,63 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPlSIMhOrTiTmSnkYx2yov/",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP34\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ryHivMuL4NuA",
+        "outputId": "4ae069a3-6a08-433e-9813-25e63f98bc6b"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter hunting style: intelligence\n",
+            "Searching IOC matches...\n"
+          ]
+        }
+      ],
+      "source": [
+        "logs = [\"malware.exe\", \"normal.exe\", \"attacker_ip\"]\n",
+        "\n",
+        "hunt_type = input(\"Enter hunting style: \")\n",
+        "\n",
+        "if hunt_type == \"hypothesis\":\n",
+        "    print(\"Searching for suspicious behavior...\")\n",
+        "elif hunt_type == \"intelligence\":\n",
+        "    print(\"Searching IOC matches...\")\n",
+        "elif hunt_type == \"analytics\":\n",
+        "    print(\"Searching anomalies...\")"
+      ]
+    }
+  ]
+}
