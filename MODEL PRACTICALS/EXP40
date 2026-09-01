@@ -1,0 +1,65 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPkcECeSLq//HXYNVRYLfNL",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP40\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FZPz5iaZ6FKS",
+        "outputId": "408ba079-a9bf-4556-c63a-1d96cca19f31"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter security task: log analysis\n",
+            "Recommended Tool: Splunk\n"
+          ]
+        }
+      ],
+      "source": [
+        "task = input(\"Enter security task: \").lower()\n",
+        "\n",
+        "if \"packet\" in task:\n",
+        "    print(\"Recommended Tool: Wireshark\")\n",
+        "elif \"vulnerability\" in task:\n",
+        "    print(\"Recommended Tool: Nessus\")\n",
+        "elif \"log\" in task:\n",
+        "    print(\"Recommended Tool: Splunk\")\n",
+        "elif \"forensics\" in task:\n",
+        "    print(\"Recommended Tool: Autopsy\")\n",
+        "else:\n",
+        "    print(\"Recommended Tool: Nmap\")"
+      ]
+    }
+  ]
+}
