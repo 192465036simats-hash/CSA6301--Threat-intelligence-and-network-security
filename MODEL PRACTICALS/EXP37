@@ -1,0 +1,61 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPTcNothvix8Xr7UsM/M+cR",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP37\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KB4Qc3kC5en8",
+        "outputId": "37959a64-2e6e-44dd-cafb-e157b0fb840d"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter login attempts: 8\n",
+            "Anomaly Detected\n"
+          ]
+        }
+      ],
+      "source": [
+        "baseline = 3\n",
+        "\n",
+        "logins = int(input(\"Enter login attempts: \"))\n",
+        "\n",
+        "if logins > baseline:\n",
+        "    print(\"Anomaly Detected\")\n",
+        "else:\n",
+        "    print(\"Normal Activity\")"
+      ]
+    }
+  ]
+}
