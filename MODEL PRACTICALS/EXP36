@@ -1,0 +1,65 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOqlxmLxh8tC0Zg1yH5brBl",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/192465036simats-hash/CSA6301--Threat-intelligence-and-network-security/blob/main/MODEL%20PRACTICALS/EXP36\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "u__zvQvt47PP",
+        "outputId": "f89a2188-e73e-4585-b73a-d639588618a2"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter system description: credit card payment processing system\n",
+            "PCI-DSS\n"
+          ]
+        }
+      ],
+      "source": [
+        "description = input(\"Enter system description: \").lower()\n",
+        "\n",
+        "if \"credit card\" in description:\n",
+        "    print(\"PCI-DSS\")\n",
+        "elif \"patient\" in description:\n",
+        "    print(\"HIPAA\")\n",
+        "elif \"personal data\" in description:\n",
+        "    print(\"GDPR\")\n",
+        "elif \"financial report\" in description:\n",
+        "    print(\"SOX\")\n",
+        "else:\n",
+        "    print(\"Unknown Standard\")"
+      ]
+    }
+  ]
+}
